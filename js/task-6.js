@@ -4,38 +4,36 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-const controls = document.querySelector("#controls");
-const inputNumber = document.querySelector("input");
-const create = document.querySelector("[data-create]");
-const destroy = document.querySelector("[data-destroy]");
-const boxes = document.querySelector("#boxes");
+const controls = document.querySelector('#controls');
+const inputNumber = document.querySelector('input');
+const create = document.querySelector('[data-create]');
+const destroy = document.querySelector('[data-destroy]');
+const boxes = document.querySelector('#boxes');
 
 function createBoxes(amount) {
   destroyBoxes();
   const elements = [];
   let size = 30;
   for (let i = 1; i <= amount; i++) {
-    const box = document.createElement("div");
+    const box = document.createElement('div');
     box.style.minWidth = `${size}px`;
     box.style.height = `${size}px`;
     box.style.backgroundColor = getRandomHexColor();
     elements.push(box);
     size += 10;
   }
-  console.log(elements);
-
   boxes.append(...elements);
 }
 function destroyBoxes() {
-  boxes.innerHTML = "";
+  boxes.innerHTML = '';
 }
-create.addEventListener("click", () => {
+create.addEventListener('click', () => {
   const item = inputNumber.value;
   if (item >= 1 && item <= 100) {
     createBoxes(item);
-    inputNumber.value = "";
+    inputNumber.value = '';
   } else {
-    alert("You need enter nubmer between 1 and 100");
+    alert('You need enter nubmer between 1 and 100');
   }
 });
-destroy.addEventListener("click", destroyBoxes);
+destroy.addEventListener('click', destroyBoxes);
