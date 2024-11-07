@@ -25,14 +25,25 @@ const images = [
   },
 ];
 
+// const gallery = document.querySelector('.gallery');
+// const collection = [];
+// images.forEach(item => {
+//   const li = document.createElement('li');
+//   const img = document.createElement('img');
+//   img.src = item.url;
+//   img.alt = item.alt;
+//   li.append(img);
+//   collection.push(li);
+// });
+// gallery.append(...collection);
+
 const gallery = document.querySelector('.gallery');
-const collection = [];
-images.forEach(item => {
+const collection = images.map(item => {
   const li = document.createElement('li');
   const img = document.createElement('img');
   img.src = item.url;
   img.alt = item.alt;
   li.append(img);
-  collection.push(li);
+  return li;
 });
 gallery.append(...collection);
